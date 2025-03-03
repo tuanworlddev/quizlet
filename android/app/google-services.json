@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "524169457574",
+    "project_id": "quizlet-221b1",
+    "storage_bucket": "quizlet-221b1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524169457574:android:9f261649154077191aa967",
+        "android_client_info": {
+          "package_name": "com.git.quizlet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWi8iFli34AL74K_gbvAoa_s1pMHZGDOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
