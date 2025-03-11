@@ -24,8 +24,19 @@ final ThemeData lightTheme = ThemeData(
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
+  scaffoldBackgroundColor: HexColor('#03045E'),
+  fontFamily: 'Inter',
   appBarTheme: AppBarTheme(
     backgroundColor: HexColor('#03045E'),
   ),
-  scaffoldBackgroundColor: HexColor('#03045E'),
+  colorScheme: ColorScheme.dark(
+    primary: Colors.white,
+    secondary: Colors.grey.shade200,
+    onSecondary: Colors.black,
+  ),
+  textTheme: TextTheme(
+    bodySmall: TextStyle(color: Colors.white),
+    bodyMedium: TextStyle(color: Colors.white),
+    bodyLarge: TextStyle(color: Colors.white),
+  ),
 );

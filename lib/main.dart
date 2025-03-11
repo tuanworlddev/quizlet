@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quizlet/firebase_options.dart';
 import 'package:quizlet/providers/theme_provider.dart';
+import 'package:quizlet/screens/home_screen.dart';
 import 'package:quizlet/screens/login_screen.dart';
+import 'package:quizlet/screens/register_screen.dart';
 import 'package:quizlet/utils/themes.dart';
 
 void main() async {
@@ -33,9 +35,12 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeProvider.themeMode,
-      home: Scaffold(
-        body: LoginScreen(),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
+      },
     );
   }
 

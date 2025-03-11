@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:quizlet/components/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({ super.key });
@@ -10,6 +12,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,75 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             const SizedBox(height: 30,),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Email',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    style: TextStyle(color: Colors.white),
-                    cursorColor: Colors.grey.shade200,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey.shade200, width: 1),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 1.5)
-                        ),
-                        prefixIcon: Icon(Icons.email, color: Colors.white,),
-                        hintText: 'Enter your email',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                        )
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            CustomTextField(controller: _emailController, label: 'Email address', icon: Icons.email,),
             const SizedBox(height: 30.0,),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  TextField(
-                    obscureText: true,
-                    cursorColor: Colors.grey.shade200,
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey.shade200, width: 1),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 1.5)
-                        ),
-                        prefixIcon: Icon(Icons.lock, color: Colors.white,),
-                        hintText: 'Enter your password',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                        )
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            CustomTextField(controller: _passwordController, label: 'Password', icon: Icons.lock, isPassword: true,),
             const SizedBox(height: 10.0,),
             Container(
               alignment: Alignment.centerRight,
@@ -122,19 +61,47 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20.0,),
             Container(
               alignment: Alignment.center,
-              child: Text('Or', style: TextStyle(color: Colors.grey.shade400, fontSize: 18),),
+              child: Text('Or', style: TextStyle(color: Colors.grey.shade400, fontSize: 18.0),),
             ),
             const SizedBox(height: 20.0,),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 25.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
               width: double.infinity,
               child: OutlinedButton(
                 onPressed: () {},
-                style: ButtonStyle(
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
                 ),
-                child: Text('Sign In with Google'),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/google.svg',
+                      width: 24.0,
+                      height: 24.0,
+                    ),
+                    const SizedBox(width: 10.0,),
+                    Text('Sign In with Google', style: TextStyle(color: Colors.white),),
+                  ],
+                ),
               ),
             ),
+            const SizedBox(height: 30.0,),
+            Container(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account? ", style: TextStyle(color: Colors.grey.shade300, fontSize: 16.0),),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    }, 
+                    child: Text('Sign up', style: TextStyle(color: Colors.white, fontSize: 16.0),),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
