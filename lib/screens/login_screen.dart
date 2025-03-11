@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:quizlet/components/custom_button.dart';
 import 'package:quizlet/components/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -46,18 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextButton(onPressed: () {}, child: Text('Forgot Password?', style: TextStyle(color: Colors.white),)),
             ),
             const SizedBox(height: 20.0,),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 25.0),
-              width: double.infinity,
-              child: FilledButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.white),
-                    padding: WidgetStateProperty.all(EdgeInsets.symmetric(vertical: 16)),
-                  ),
-                  child: Text('LOGIN', style: TextStyle(color: HexColor('#0077b6'), fontSize: 18, fontWeight: FontWeight.bold),)
-              ),
-            ),
+            CustomButtonLight(text: 'LOGIN', onPressed: () {}),
             const SizedBox(height: 20.0,),
             Container(
               alignment: Alignment.center,
