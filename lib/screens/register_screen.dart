@@ -41,9 +41,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('QUIZLET', style: TextStyle(fontWeight: FontWeight.bold),),
+      ),
       body: Container(
         alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 80.0),
+        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -82,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               alignment: Alignment.center,
               child: Text(
                 'Or',
-                style: TextStyle(color: Colors.grey.shade400, fontSize: 18.0),
+                style: TextStyle(color: Colors.grey.shade200, fontSize: 18.0),
               ),
             ),
             const SizedBox(height: 20.0),
@@ -129,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/login');
+                      Navigator.pushReplacementNamed(context, '/login');
                     },
                     child: Text(
                       'Log in',

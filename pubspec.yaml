@@ -20,6 +20,10 @@ dependencies:
   provider: ^6.1.2
   hexcolor: ^3.0.1
   flutter_svg: ^2.0.17
+  flutter_native_splash: ^2.4.5
+  flutter_dotenv: ^5.2.1
+  http: ^1.3.0
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +37,8 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/google.svg
+    - assets/images/logo.png
+    - .env
 
   fonts:
     - family: Inter
@@ -42,3 +48,4 @@ flutter:
           weight: 700
         - asset: assets/fonts/Inter-Italic.ttf
           style: italic
+

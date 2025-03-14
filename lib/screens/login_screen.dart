@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:quizlet/components/custom_button.dart';
 import 'package:quizlet/components/custom_textfield.dart';
 
@@ -19,9 +18,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('QUIZLET', style: TextStyle(fontWeight: FontWeight.bold),),),
       body: Container(
         alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 80.0),
+        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20.0,),
             Container(
               alignment: Alignment.center,
-              child: Text('Or', style: TextStyle(color: Colors.grey.shade400, fontSize: 18.0),),
+              child: Text('Or', style: TextStyle(color: Colors.grey.shade200, fontSize: 18.0),),
             ),
             const SizedBox(height: 20.0,),
             Container(
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text("Don't have an account? ", style: TextStyle(color: Colors.grey.shade300, fontSize: 16.0),),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/register');
+                      Navigator.pushReplacementNamed(context, '/register');
                     }, 
                     child: Text('Sign up', style: TextStyle(color: Colors.white, fontSize: 16.0),),
                   ),
