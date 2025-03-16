@@ -21,6 +21,7 @@ dependencies:
   hexcolor: ^3.0.1
   flutter_svg: ^2.0.17
   flutter_dotenv: ^5.0.2
+  carousel_slider: ^5.0.0
   
 
 dev_dependencies:
@@ -35,7 +36,8 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/google.svg
-
+    - assets/.env
+    - assets/images/images.jpg
   fonts:
     - family: Inter
       fonts:
