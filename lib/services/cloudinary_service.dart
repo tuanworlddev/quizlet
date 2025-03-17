@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -13,8 +15,11 @@ class CloudinaryService {
     final request = http.MultipartRequest('POST', Uri.parse(url));
     request.fields['upload_preset'] = 'your_upload_preset';
     request.fields['api_key'] = _apiKey;
-    request.fields['timestamp'] = (DateTime.now().microsecondsSinceEpoch / 1000).toString();
-    request.files.add(await http.MultipartFile.fromPath('file', imageFile.path));
+    request.fields['timestamp'] =
+        (DateTime.now().microsecondsSinceEpoch / 1000).toString();
+    request.files.add(
+      await http.MultipartFile.fromPath('file', imageFile.path),
+    );
 
     final response = await request.send();
     if (response.statusCode == 200) {

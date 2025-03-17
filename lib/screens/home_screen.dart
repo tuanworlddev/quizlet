@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:quizlet/screens/main_screen.dart';
 import 'package:quizlet/screens/profile_screen.dart';

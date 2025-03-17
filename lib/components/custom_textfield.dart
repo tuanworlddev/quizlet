@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
-  IconData? icon;
+  final IconData? icon;
   final bool isPassword;
   final TextInputType keyboardType;
 

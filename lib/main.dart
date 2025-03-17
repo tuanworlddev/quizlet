@@ -6,14 +6,13 @@ import 'package:quizlet/firebase_options.dart';
 import 'package:quizlet/providers/theme_provider.dart';
 import 'package:quizlet/screens/home_screen.dart';
 import 'package:quizlet/screens/login_screen.dart';
-import 'package:quizlet/screens/main_screen.dart';
 import 'package:quizlet/screens/register_screen.dart';
 import 'package:quizlet/utils/themes.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
+  await dotenv.load(fileName: './assets/.env');
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: "assets/.env");
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(

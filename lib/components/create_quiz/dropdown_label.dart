@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DropDownQuiz extends StatelessWidget {
-  // final String label;
-  // final String hint;
-  // final TextEditingController controller;
-  // final TextInputType keyboardType;
-  // final List<TextInputFormatter> inputFormatter;
-  // final IconData icon;
+
   final String label;
   final String hint;
   final List<String> items;
@@ -45,7 +40,7 @@ class DropDownQuiz extends StatelessWidget {
             hint: Text(hint),
             icon: Icon(icon),
             items:
-                items!.map((String item) {
+                items.map((String item) {
                   return DropdownMenuItem<String>(
                     value: item,
                     child: Text(item),
