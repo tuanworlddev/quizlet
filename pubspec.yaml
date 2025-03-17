@@ -36,7 +36,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/google.svg
-    - assets/.env
+    - .env
     - assets/images/images.jpg
 
   fonts:
