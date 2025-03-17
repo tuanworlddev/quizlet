@@ -1,52 +1,47 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:quizlet/firebase_options.dart';
 import 'package:quizlet/providers/theme_provider.dart';
 import 'package:quizlet/screens/home_screen.dart';
 import 'package:quizlet/screens/login_screen.dart';
+import 'package:quizlet/screens/main_screen.dart';
 import 'package:quizlet/screens/register_screen.dart';
 import 'package:quizlet/utils/themes.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await dotenv.load(fileName: ".env");
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: "assets/.env");
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.transparent, // Make status bar transparent
+      statusBarIconBrightness:
+          Brightness.dark, // Dark icons for light background
+      statusBarBrightness: Brightness.light, // For iOS
+    ),
   );
+
   runApp(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => ThemeProvider())
-        ],
-        child: const MyApp(),
-      )
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => ThemeProvider())],
+      child: const MyApp(),
+    ),
   );
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({ super.key });
-
-  @override
-  State<MyApp> createState() => _MyApp();
-}
-
-class _MyApp extends State<MyApp> {
-
-  @override
-  void initState() {
-    super.initState();
-    FlutterNativeSplash.remove();
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: 'Quizlet',
       theme: lightTheme,
       darkTheme: darkTheme,
@@ -59,5 +54,4 @@ class _MyApp extends State<MyApp> {
       },
     );
   }
-
 }

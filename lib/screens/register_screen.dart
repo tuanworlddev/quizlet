@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:quizlet/components/custom_button.dart';
 import 'package:quizlet/components/custom_dropdown.dart';
 import 'package:quizlet/components/custom_textfield.dart';
@@ -21,22 +20,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final List<String> _roles = [
     'Student',
     'University Student',
-    'Working Professional'
+    'Working Professional',
   ];
-
-  Future<void> _selectDate(BuildContext context) async {
-    DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      setState(() {
-        _dobController.text = "${picked.day}/${picked.month}/${picked.year}";
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,15 +48,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
             const SizedBox(height: 30),
-            CustomTextField(controller: _emailController, label: 'Email address', icon: Icons.email,),
+            CustomTextField(
+              controller: _emailController,
+              label: 'Email address',
+              icon: Icons.email,
+            ),
             const SizedBox(height: 30.0),
-            CustomTextField(controller: _passwordController, label: 'Password', icon: Icons.lock, isPassword: true,),
+            CustomTextField(
+              controller: _passwordController,
+              label: 'Password',
+              icon: Icons.lock,
+              isPassword: true,
+            ),
             const SizedBox(height: 30.0),
             CustomDobField(controller: _dobController, label: 'Date of birth'),
             const SizedBox(height: 30.0),
             CustomDropdown(
-              slected: _selectedRole, 
-              options: _roles, 
+              slected: _selectedRole,
+              options: _roles,
               onChanged: (value) {
                 setState(() {
                   _selectedRole = value!;
